@@ -1,0 +1,433 @@
+html {
+    max-width: 1600px;
+    background-image: linear-gradient(-45deg, #fff 25%, #d9d9d9 25%, #d9d9d9 50%, #fff 50%, #fff 75%, #d9d9d9 75%, #d9d9d9);
+    background-size: 8px 8px;
+    margin: 0 auto;
+}
+
+.head {
+    align-items: center;
+}
+
+header {
+    background-color: #fff;
+    color: #000;
+    height: 60px;
+}
+
+.header_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    height: 40px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fLeft {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.h35 {
+    height: 35px;
+}
+
+.h27 {
+    height: 27px;
+}
+
+.w420 {
+    width: 420px;
+}
+
+.w415 {
+    width: 415px;
+}
+
+.w407 {
+    width: 407px;
+}
+
+.w245 {
+    width: 245px;
+}
+
+.w237 {
+    width: 237px;
+}
+
+.w115 {
+    width: 115px;
+}
+
+.w107 {
+    width: 107px;
+}
+
+.letterWhite {
+    color: #fff;
+}
+
+.chooser {
+    width: 420px;
+    height: 40px;
+    margin-left: 550px;
+    margin-right: auto;
+    border: #000 1px solid;
+    font-size: 20px;
+}
+
+.chooserSize {
+    width: 420px;
+    padding: 5px 10px;
+}
+
+.chooserSize-wrapper {
+    position: relative;
+}
+
+.chooserSize-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 20px;
+}
+
+.addButton {
+    width: 120px;
+    height: 40px;
+    margin-right: 5px;
+    border: #000 1px solid;
+    cursor: pointer;
+}
+
+.Yellow {
+    background-color: #9D551E;
+}
+
+.YellowContent {
+    background-image: linear-gradient(-45deg, #ff7800 40%, #ff9e48 5%, #ff9e48 50%, #ff7800 40%, #ff7800 90%, #ff9e48 10%, #ff9e48);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+.Yellow:active {
+    background-color: #ebded5;
+}
+
+.YellowContent:active {
+    background-image: linear-gradient(-45deg, #ffe4cc 40%, #ff9e48 5%, #ff9e48 50%, #ffe4cc 40%, #ffe4cc 90%, #ff9e48 10%, #ff9e48);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+.LogOut {
+    width: 120px;
+    height: 40px;
+    margin-right: 20px;
+    border: #000 1px solid;
+}
+
+.Black {
+    background-color: #616161;
+}
+
+.BlackContent {
+    background-image: linear-gradient(-45deg, #222222 40%, #4b4b4b 5%, #4b4b4b 50%, #222222 40%, #222222 90%, #4b4b4b 10%, #4b4b4b);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+.Black:active {
+    background-color: #dfdfe1;
+}
+
+.BlackContent:active {
+    background-image: linear-gradient(-45deg, #d3d3d3 40%, #555555 5%, #555555 50%, #d3d3d3 40%, #d3d3d3 90%, #555555 10%, #555555);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+.back {
+    background-color: #000;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.winrate {
+    color: #fff;
+    text-align: center;
+}
+
+.playerBack {
+    margin-top: 30px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    height: 170px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showPRate {
+    color: #fff;
+    position: relative;
+    right: -25px;
+    z-index: 1;
+}
+
+.playerPart {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 315px;
+    height: 150px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playerPart::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    right: -55px;
+    background-color: #000;
+    background: linear-gradient(to right, black 53%, transparent);
+}
+
+.playerImg {
+    /* Img2 */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 345px;
+    height: 150px;
+    object-position: center;
+    overflow: hidden;
+}
+
+.backPart {
+    background-image: linear-gradient(-45deg, #fff 25%, #d9d9d9 25%, #d9d9d9 50%, #fff 50%, #fff 75%, #d9d9d9 75%, #d9d9d9);
+    background-size: 8px 8px;
+    width: 690px;
+    height: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.green {
+    background-color: green;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.item {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 200px;
+    height: 60px;
+    background-color: #d9d9d9;
+    color: #000;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemList {
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 60px;
+    background-color: #d9d9d9;
+    color: #000;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemListR {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 60px;
+    background-color: #d9d9d9;
+    color: #000;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemBack {
+    width: 700px;
+    background-image: linear-gradient(-45deg, #fff 25%, #d9d9d9 25%, #d9d9d9 50%, #fff 50%, #fff 75%, #d9d9d9 75%, #d9d9d9);
+    background-size: 8px 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    margin: 5px;
+}
+
+.titleImg {
+    /* Img1 */
+    /* background-image: url('../../public/2/1.PNG'); */
+    background-size: cover;
+    background-position: center;
+    mask-image: linear-gradient(to right, white 85%, transparent);
+    object-position: center;
+    object-fit: cover;
+    height: 70px;
+    width: 285px;
+    margin-left: 5px;
+    background: linear-gradient(270deg, white);
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+}
+
+.posPlayer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    width: 290px;
+    background-color: #000;
+}
+
+.posRate {
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    width: 690px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    background-image: linear-gradient(-45deg, #fff 25%, #d9d9d9 25%, #d9d9d9 50%, #fff 50%, #fff 75%, #d9d9d9 75%, #d9d9d9);
+    background-size: 8px 8px;
+}
+
+.YPos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.align_center {
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    text-align: center;
+    place-items: center;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.align_select {
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3,200px);
+    grid-template-rows: repeat(1,200px);
+    text-align: center;
+    place-items: center;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.standByAnim {
+    background-image: url('../../public/images/standByImg.png');
+    background-size: contain;
+    width: 90px;
+    height: 80px;
+    animation: 0.7s linear infinite rotation3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes rotation3 {
+    0% { transform: rotateY(0); }
+    100% { transform: rotateY(360deg); }
+}
+
+.forStay {
+    position: relative;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.forStay::after {
+    position: absolute;
+    content: "入力待機中";
+    width: 100px;
+    height: 104px;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.submitButton {
+    position: relative;
+}
+
+.submitButton::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: transparent;
+}
+
+.BlueContent {
+    position: relative;
+    background-image: linear-gradient(-45deg, #c2c6e9 40%, #97a1ff 5%, #97a1ff 50%, #c2c6e9 40%, #c2c6e9 90%, #97a1ff 10%, #97a1ff);
+    background-size: 8px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+.selectForm {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    z-index: 1;
+}
