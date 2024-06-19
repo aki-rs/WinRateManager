@@ -62,15 +62,15 @@
                                 </div>
                             `;
                             var resetButton =`
-                            <a href="" class="addButton flex">
-                                <div class="Black h35 w115 flex">
-                                    <div class="BlackContent h27 w107 flex">試合登録</div>
-                                </div>
-                            </a>
+                                <button href="" class="addButton flex" id="reset">
+                                    <div class="Black h35 w115 flex">
+                                        <div class="BlackContent h27 w107 flex">リセット</div>
+                                    </div>
+                                </button>
                             `;
                             $('#character-win-rate').html(winRateHtml);
                             $('#player-win-rate').html(playerRateHtml);
-                            $('#resetButton').hetml(resetButton);
+                            $('#resetButton').html(resetButton);
                         },
                         error: function(jqXHR, textStatus, errorThrown) {
                             console.error("Error fetching win rates: ", textStatus, errorThrown);
@@ -86,13 +86,32 @@
     </script>
 </head>
 <body>
+    <!-- <section id="resetModal" class="modalBack">
+        <div>
+            <div>
+                <p>このキャラクターの戦績を削除しますか？</p>
+                <div class="flex">
+                    <a href="" class="addButton flex">
+                        <div class="Yellow h35 w115 flex">
+                            <div class="YellowContent h27 w107 flex">削除</div>
+                        </div>
+                    </a>
+                    <a href="" class="addButton flex">
+                        <div class="Black h35 w115 flex">
+                            <div class="BlackContent h27 w107 flex">キャンセル</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
     <header class="head">
         <div class="header_content">
             <div class="chooser flex">
                 <div class="Black h35 w415 flex">
                     <div class="BlackContent h27 w407 fLeft chooserSize-wrapper">
                         <select id="character-select" class="chooserSize">
-                            <option value="">-</option>
+                            <option value="" disabled selected>-</option>
                             @foreach ($characters as $character)
                                 <option value="{{ $character->id }}">{{ $character->name }}</option>
                             @endforeach
@@ -104,7 +123,7 @@
             
             <a href="{{ route('moveToRegisterMatch') }}" class="addButton flex">
                 <div class="Yellow h35 w115 flex">
-                    <div class="YellowContent h27 w107 flex">試合登録</div>
+                    <div class="YellowContent h27 w107 flex">戦績登録</div>
                 </div>
             </a>
             <form action="{{ route('logout') }}" method="POST" class="LogOut flex">
@@ -120,7 +139,10 @@
         <div class="back">
             <section class="winrate back" id="character-win-rate"></section>
         </div>
-        <div class="resetButton"></div>
+        <div class="flex">
+            <div id="resetButton"></div>
+        </div>
+        
     </main>
     <footer></footer>
 </body>

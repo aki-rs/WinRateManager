@@ -21,9 +21,9 @@
     </script>
 </head>
 <body>
-    <header>
+    <!-- <header>
         <title>registerMatch</title>
-    </header>
+    </header> -->
     <main>
         @if ($errors->any())
             <div>
@@ -35,104 +35,125 @@
             </div>
         @endif
 
-        <div class="">
-            <form method="POST" action="{{ route('registerMatch') }}">
-                @csrf
-                <div class="align_center">
-                    <label class="forStay">操作キャラクター</label>
-                    <label class="forStay">味方キャラクター</label>
-                    <label class="forStay">味方キャラクター</label>
+        <div class="flex">
+            <div class="matchBack">
+                <div class="flex">
+                    <div class="blueLabel">▼蒼TEAM</div>
                 </div>
-                <div class="align_select">
-                    <div class="BlueContent">
-                        <div class="standByAnim showContent"></div>
-                        <select name="your_character" class="selectForm" required>
-                            <option value="" disabled selected></option>
-                            @foreach ($characters as $character)
-                                <option value="{{ $character->id }}">{{ $character->name }}</option>
-                            @endforeach
-                        </select>
+                <form method="POST" action="{{ route('registerMatch') }}">
+                    @csrf
+                    <!-- <div class="align_center">
+                        <label class="forStay">操作キャラクター</label>
+                        <label class="forStay">味方キャラクター</label>
+                        <label class="forStay">味方キャラクター</label>
+                    </div> -->
+                    <div class="align_select">
+                        <div class="BlueContent">
+                            <div class="standByAnim showContent"></div>
+                            <select name="your_character" class="selectForm" required>
+                                <option value="" disabled selected></option>
+                                @foreach ($characters as $character)
+                                    <option value="{{ $character->id }}">{{ $character->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
+                        <div class="BlueContent">
+                            <div class="standByAnim showContent"></div>
+                            <select name="ally_characters[]" class="selectForm" required>
+                                <option value="" disabled selected></option>
+                                @foreach ($characters as $character)
+                                    <option value="{{ $character->id }}">{{ $character->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
+                        <div class="BlueContent">
+                            <div class="standByAnim showContent"></div>
+                            <select name="ally_characters[]" class="selectForm" required>
+                                <option value="" disabled selected></option>
+                                @foreach ($characters as $character)
+                                    <option value="{{ $character->id }}">{{ $character->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
                     </div>
+
+                    <section class="flex">
+                        <div class="matchContent">
+                            <div class="flex">
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="flex">
+                        <div class="redLabel">▼紅TEAM</div>
+                    </div>
+                    <!-- <div class="align_center">
+                        <label class="forStay">敵キャラクター</label>
+                        <label class="forStay">敵キャラクター</label>
+                        <label class="forStay">敵キャラクター</label>
+                    </div> -->
+
+                    <div class="align_select">
+                        <div class="RedContent">
+                            <div class="standByAnim showContent"></div>
+                            <select name="enemy_characters[]" class="selectForm" required>
+                                <option value="" disabled selected></option>
+                                @foreach ($characters as $character)
+                                    <option value="{{ $character->id }}">{{ $character->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="RedContent">
+                            <div class="standByAnim showContent"></div>
+                            <select name="enemy_characters[]" class="selectForm" required>
+                                <option value="" disabled selected></option>
+                                @foreach ($characters as $character)
+                                    <option value="{{ $character->id }}">{{ $character->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="RedContent">
+                            <div class="standByAnim showContent"></div>
+                            <select name="enemy_characters[]" class="selectForm" required>
+                                <option value="" disabled selected></option>
+                                @foreach ($characters as $character)
+                                    <option value="{{ $character->id }}">{{ $character->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <label class="letterWhite">ステージ</label>
+                    <select name="stage" class="standByAnim letterWhite" required>
+                        <option value="" disabled selected></option>
+                        @foreach ($stages as $stage)
+                            <option value="{{ $stage->id }}">{{ $stage->name }}</option>
+                        @endforeach
+                    </select>
+
+                    <label class="letterWhite">結果</label>
+                    <input type="radio" name="result" value="win" required class="letterWhite"> Win
+                    <input type="radio" name="result" value="lose" required class="letterWhite"> Lose<br>
                     
-                    <div class="BlueContent">
-                        <div class="standByAnim showContent"></div>
-                        <select name="ally_characters[]" class="selectForm" required>
-                            <option value="" disabled selected></option>
-                            @foreach ($characters as $character)
-                                <option value="{{ $character->id }}">{{ $character->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    
-                    <div class="BlueContent">
-                        <div class="standByAnim showContent"></div>
-                        <select name="ally_characters[]" class="selectForm" required>
-                            <option value="" disabled selected></option>
-                            @foreach ($characters as $character)
-                                <option value="{{ $character->id }}">{{ $character->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    
-                </div>
-                <div class="align_center">
-                    <label class="forStay">敵キャラクター</label>
-                    <label class="forStay">敵キャラクター</label>
-                    <label class="forStay">敵キャラクター</label>
-                </div>
-
-                <div class="align_select">
-                    <div class="BlueContent">
-                        <div class="standByAnim showContent"></div>
-                        <select name="enemy_characters[]" class="selectForm" required>
-                            <option value="" disabled selected></option>
-                            @foreach ($characters as $character)
-                                <option value="{{ $character->id }}">{{ $character->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="BlueContent">
-                        <div class="standByAnim showContent"></div>
-                        <select name="enemy_characters[]" class="selectForm" required>
-                            <option value="" disabled selected></option>
-                            @foreach ($characters as $character)
-                                <option value="{{ $character->id }}">{{ $character->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="BlueContent">
-                        <div class="standByAnim showContent"></div>
-                        <select name="enemy_characters[]" class="selectForm" required>
-                            <option value="" disabled selected></option>
-                            @foreach ($characters as $character)
-                                <option value="{{ $character->id }}">{{ $character->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
-                <label>ステージ</label>
-                <select name="stage" class="standByAnim" required>
-                    <option value="" disabled selected></option>
-                    @foreach ($stages as $stage)
-                        <option value="{{ $stage->id }}">{{ $stage->name }}</option>
-                    @endforeach
-                </select>
-
-                <label>結果</label>
-                <input type="radio" name="result" value="win" required> Win
-                <input type="radio" name="result" value="lose" required> Lose<br>
-                
-                <input type="submit" value="Add Match">
-            </form>
+                    <button class="addButton flex" type="submit">
+                        <div class="Yellow h35 w115 flex">
+                            <div class="YellowContent h27 w107 flex">登録</div>
+                        </div>
+                    </button>
+                </form>
+            </div>
         </div>
 
         <br>
         <a href="{{ route('moveToRate') }}" class="addButton flex">
             <div class="Black h35 w115 flex">
-                <div class="BlackContent h27 w107 flex">Back to Rate</div>
+                <div class="BlackContent h27 w107 flex">戻る</div>
             </div>
         </a>
     </main>
