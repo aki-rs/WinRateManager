@@ -31,7 +31,7 @@
                                         ${data.characterWinRates.map(rate => `
                                             <li class="posRate">
                                                 <div class="titleImg">
-                                                    <img src="{{ asset('images/2/${rate.id}.PNG') }}" class="titleImg" alt="${rate.name}">
+                                                    <img src="{{ asset('images/1/${rate.id}.PNG') }}" class="titleImg" alt="${rate.name}">
                                                 </div>
                                                 <div class="YPos">
                                                     <p class="itemList">${rate.allyWinRate}</p>
@@ -56,7 +56,7 @@
                                             <p class="showPRate">${data.playerWinRate}</p>
                                         </div>
                                         <div class="">
-                                            <img src="{{ asset('images/2/${data.characterId}.PNG') }}" class="playerImg" alt="${data.characterName}">
+                                            <img src="{{ asset('images/1/${data.characterId}.PNG') }}" class="playerImg" alt="${data.characterName}">
                                         </div>
                                     </div>
                                 </div>

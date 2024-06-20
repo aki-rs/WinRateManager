@@ -29,10 +29,22 @@ header {
     justify-content: center;
 }
 
+.block{
+    display: block;
+}
+
 .fLeft {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.hidden{
+    visibility: hidden;
 }
 
 .h35 {
@@ -71,11 +83,16 @@ header {
     width: 107px;
 }
 
+.bottom5{
+    margin-bottom: 5px;
+}
+
 .letterWhite {
     color: #fff;
 }
 
 .chooser {
+    background-color: #fff;
     width: 420px;
     height: 40px;
     margin-left: 550px;
@@ -104,6 +121,7 @@ header {
 }
 
 .addButton {
+    background-color: #fff;
     width: 120px;
     height: 40px;
     margin-right: 5px;
@@ -132,6 +150,7 @@ header {
 }
 
 .LogOut {
+    background-color: #fff;
     width: 120px;
     height: 40px;
     margin-right: 20px;
@@ -368,6 +387,8 @@ header {
 }
 
 .standByAnim {
+    position: absolute;
+    transform: translate(-50%, -50%);
     background-image: url('../../public/images/standByImg.png');
     background-size: contain;
     width: 90px;
@@ -421,17 +442,7 @@ header {
     background-image: linear-gradient(-45deg, #c2c6e9 40%, #97a1ff 5%, #97a1ff 50%, #c2c6e9 40%, #c2c6e9 90%, #97a1ff 10%, #97a1ff);
     background-size: 8px 8px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 200px;
-}
-
-.RedContent {
-    position: relative;
-    background-image: linear-gradient(-45deg, #e9c3c3 40%, #ffa0a0 5%, #ffa0a0 50%, #e9c3c3 40%, #e9c3c3 90%, #ffa0a0 10%, #ffa0a0);
-    background-size: 8px 8px;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 200px;
@@ -447,7 +458,32 @@ header {
     height: 30px;
     color: #fff;
     margin-top: 5px;
+    padding-left: 5px;
     /* margin-bottom: 1px; */
+}
+
+.blueName{
+    background-color: rgba(12, 1, 130, 0.85);
+    margin-top: auto;
+    text-transform: translate(-50%, -50%);
+    width: 200px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.RedContent {
+    position: relative;
+    background-image: linear-gradient(-45deg, #e9c3c3 40%, #ffa0a0 5%, #ffa0a0 50%, #e9c3c3 40%, #e9c3c3 90%, #ffa0a0 10%, #ffa0a0);
+    background-size: 8px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
 }
 
 .redLabel{
@@ -459,15 +495,38 @@ header {
     height: 30px;
     color: #fff;
     margin-top: 5px;
+    padding-left: 5px;
     /* margin-bottom: 1px; */
+}
+
+.redName{
+    background-color: rgba(137, 4, 4, 0.85);
+    margin-top: auto;
+    text-transform: translate(-50%, -50%);
+    width: 200px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
 }
 
 .matchContent{
     background-image: linear-gradient(-45deg, #fff 25%, #d9d9d9 25%, #d9d9d9 50%, #fff 50%, #fff 75%, #d9d9d9 75%, #d9d9d9);
     background-size: 8px 8px;
     width: 610px;
-    height: 200px;
+    height: 150px;
     margin-top: 5px;
+}
+
+.searchLabel{
+    margin-top: 140px;
+    width: 200px;
+    height: 25px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
