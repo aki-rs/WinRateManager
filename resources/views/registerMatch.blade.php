@@ -46,7 +46,7 @@
         <div class="flex">
             <div class="matchBack">
                 <div class="flex">
-                    <div class="blueLabel">▼蒼TEAM</div>
+                    <div class="blueLabel">蒼TEAM</div>
                 </div>
                 <form method="POST" action="{{ route('registerMatch') }}">
                     @csrf
@@ -116,7 +116,7 @@
                     </section>
 
                     <div class="flex">
-                        <div class="redLabel">▼紅TEAM</div>
+                        <div class="redLabel">紅TEAM</div>
                     </div>
                     <!-- <div class="align_center">
                         <label class="forStay">敵キャラクター</label>
