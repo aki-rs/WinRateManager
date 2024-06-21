@@ -19,10 +19,40 @@
                 nameHidden.css("visibility", "visible");
                 searchVisible.css("visibility", "hidden");
                 if($(this).val() !== "") {
+                    console.log(siblingDiv);
                     siblingDiv.removeClass('standByAnim');
                 }
                 if(selectedText == "アイズ・ヴァレンシュタイン" || selectedText == "アル・ダハブ=アルカティア"){
                     thisName.css("font-size", "15px");
+                }
+            });
+            $('input[type=radio]').change(function() {
+                console.log('radio1');
+                var radioId = $(this).attr('id');
+                var win1 = document.getElementById("win1");
+                var win2 = document.getElementById("win2");
+                var lose1 = document.getElementById("lose1");
+                var lose2 = document.getElementById("lose2");
+                if(radioId === 'win'){
+                    win1.classList.add("BlueButton");
+                    win1.classList.remove("reBlueButton");
+                    win2.classList.add('BlueButtonContent');
+                    win2.classList.remove('reBlueButtonContent');
+                    lose1.classList.add("reRedButton");
+                    lose1.classList.remove("RedButton");
+                    lose2.classList.add("reRedButtonContent");
+                    lose2.classList.remove("RedButtonContent");
+                }
+                else if(radioId === 'lose'){
+                    console.log(win1);
+                    win1.classList.add("reBlueButton");
+                    win1.classList.remove("BlueButton");
+                    win2.classList.add('reBlueButtonContent');
+                    win2.classList.remove('BlueButtonContent');
+                    lose1.classList.add("RedButton");
+                    lose1.classList.remove("reRedButton");
+                    lose2.classList.add("RedButtonContent");
+                    lose2.classList.remove("reRedButtonContent");
                 }
             });
         });
@@ -50,11 +80,6 @@
                 </div>
                 <form method="POST" action="{{ route('registerMatch') }}">
                     @csrf
-                    <!-- <div class="align_center">
-                        <label class="forStay">操作キャラクター</label>
-                        <label class="forStay">味方キャラクター</label>
-                        <label class="forStay">味方キャラクター</label>
-                    </div> -->
                     <div class="align_select">
                         <div class="BlueContent">
                             <div class="standByAnim showContent"></div>
@@ -93,37 +118,47 @@
                         
                     </div>
 
+                    <!--中間部分-->
                     <section class="flex">
                         <div class="matchContent flex">
                             <div class="flex">
-                                <label class="">ステージ</label>
-                                <select name="stage" class="standByAnim" required>
-                                    <option value="" disabled selected></option>
-                                    @foreach ($stages as $stage)
-                                        <option value="{{ $stage->id }}">{{ $stage->name }}</option>
-                                    @endforeach
-                                </select>
                                 <label class="">結果</label>
-                                <input type="radio" name="result" value="win" required class="letterWhite"> Win
-                                <input type="radio" name="result" value="lose" required class="letterWhite"> Lose
+                                <input type="radio" name="result" value="win" id ="win" required>
+                                <div class="flex">
+                                    <div class="addButton flex">
+                                        <div class="reBlueButton h35 w115 flex win1" id="win1">
+                                            <label class="reBlueButtonContent h27 w107 flex win2" for="win" id="win2">蒼TEAM</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="radio" name="result" value="lose" id="lose" required>
+                                <div class="flex">
+                                    <div class="addButton flex">
+                                        <div class="reRedButton h35 w115 flex lose1" id="lose1">
+                                            <label class="reRedButtonContent h27 w107 flex lose2" for="lose" id="lose2">紅TEAM</label>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <button class="addButton flex" type="submit">
                                     <div class="Yellow h35 w115 flex">
                                         <div class="YellowContent h27 w107 flex">登録</div>
                                     </div>
                                 </button>
                             </div>
+
+                            <div class="stageShowPart">
+                                <div>選択ステージ</div>
+                                <div class="" id="selectedStage">でらクランクストリート</div>
+                            </div>
+
                         </div>
                     </section>
 
                     <div class="flex">
                         <div class="redLabel">紅TEAM</div>
                     </div>
-                    <!-- <div class="align_center">
-                        <label class="forStay">敵キャラクター</label>
-                        <label class="forStay">敵キャラクター</label>
-                        <label class="forStay">敵キャラクター</label>
-                    </div> -->
-
                     <div class="align_select bottom5">
                         <div class="RedContent">
                             <div class="standByAnim showContent"></div>
@@ -161,10 +196,6 @@
                             <label for="selectForm" class="redName subName hidden">敵キャラクター</label>
                         </div>
                     </div>
-
-
-                    
-                    
                 </form>
             </div>
         </div>
@@ -176,6 +207,15 @@
                 </div>
             </a>
         </div>
+
+
+        <label class="">ステージ</label>
+        <select name="stage" class="standByAnim" required>
+            <option value="" disabled selected></option>
+            @foreach ($stages as $stage)
+                <option value="{{ $stage->id }}">{{ $stage->name }}</option>
+            @endforeach
+        </select>
     </main>
     <footer></footer>
 </body>

@@ -29,6 +29,10 @@ header {
     justify-content: center;
 }
 
+.flexEnd{
+    justify-content: flex-end;
+}
+
 .block{
     display: block;
 }
@@ -543,6 +547,7 @@ header {
     width: 610px;
     height: 150px;
     margin-top: 5px;
+    flex-direction: column;
 }
 
 .searchLabel{
@@ -553,6 +558,104 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.stageShowPart{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input[type = radio]{
+    display: none;
+}
+
+
+.BlueButton {
+    background-color: #1E3A9D;
+}
+
+.BlueButtonContent {
+    background-image: linear-gradient(-45deg, #2c43dd 40%, #2d67fb 5%, #2d67fb 50%, #2c43dd 40%, #2c43dd 90%, #2d67fb 10%, #2d67fb);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+.BlueButton:active {
+    background-color: #d5e0eb;
+}
+
+.BlueButtonContent:active {
+    background-image: linear-gradient(-45deg, #c4c7ff 40%, #2d67fb 5%, #2d67fb 50%, #c4c7ff 40%, #c4c7ff 90%, #2d67fb 10%, #2d67fb);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+.reBlueButton {
+    background-color: #d5e0eb;
+}
+
+.reBlueButtonContent {
+    background-image: linear-gradient(-45deg, #c4c7ff 40%, #2d67fb 5%, #2d67fb 50%, #c4c7ff 40%, #c4c7ff 90%, #2d67fb 10%, #2d67fb);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+.reBlueButton:active {
+    background-color: #1E3A9D;
+}
+
+.reBlueButtonContent:active {
+    background-image: linear-gradient(-45deg, #2c43dd 40%, #2d67fb 5%, #2d67fb 50%, #2c43dd 40%, #2c43dd 90%, #2d67fb 10%, #2d67fb);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+
+
+
+
+.RedButton {
+    background-color: #9D1E1E;
+}
+
+.RedButtonContent {
+    background-image: linear-gradient(-45deg, #ff0000 40%, #ff4848 5%, #ff4848 50%, #ff0000 40%, #ff0000 90%, #ff4848 10%, #ff4848);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+.RedButton:active {
+    background-color: #ebd5d5;
+}
+
+.RedButtonContent:active {
+    background-image: linear-gradient(-45deg, #ffc4c4 40%, #ff4848 5%, #ff4848 50%, #ffc4c4 40%, #ffc4c4 90%, #ff4848 10%, #ff4848);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+
+
+.reRedButton {
+    background-color: #ebd5d5;
+}
+
+.reRedButtonContent {
+    background-image: linear-gradient(-45deg, #ffc4c4 40%, #ff4848 5%, #ff4848 50%, #ffc4c4 40%, #ffc4c4 90%, #ff4848 10%, #ff4848);
+    background-size: 8px 8px;
+    color: #fff;
+}
+
+.reRedButton:active {
+    background-color: #9D1E1E;
+}
+
+.reRedButtonContent:active {
+    background-image: linear-gradient(-45deg, #ff0000 40%, #ff4848 5%, #ff4848 50%, #ff0000 40%, #ff0000 90%, #ff4848 10%, #ff4848);
+    background-size: 8px 8px;
+    color: #fff;
 }
 
 
