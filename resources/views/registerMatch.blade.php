@@ -19,19 +19,32 @@
                 var gunner = [3,8,10,12,22,24,27,28,30,37,41,42,45,52,54,55,60,61,64,72,73,75,77,82];
                 var sprinter = [1,9,14,15,17,19,23,31,32,35,43,47,53,58,63,66,70,74,76,80];
                 var tank = [2,6,13,16,29,33,36,40,48,56,57,68,81];
+                var selectedValue = parseInt($(this).val(), 10);
+
                 thisName.text(selectedText);
                 nameHidden.css("visibility", "visible");
                 searchVisible.css("visibility", "hidden");
-                if($(this).val() !== "") {
-                    console.log(siblingDiv);
+                
+                if ($(this).val() !== "") {
                     siblingDiv.removeClass('standByAnim');
                 }
-                if(selectedText == "アイズ・ヴァレンシュタイン" || selectedText == "アル・ダハブ=アルカティア"){
+                if (selectedText == "アイズ・ヴァレンシュタイン" || selectedText == "アル・ダハブ=アルカティア") {
                     thisName.css("font-size", "15px");
+                }
+                if (attacker.includes(selectedValue)) {
+                    console.log("アタッカー");
+                }
+                if (gunner.includes(selectedValue)) {
+                    console.log("ガンナー");
+                }
+                if (sprinter.includes(selectedValue)) {
+                    console.log("スプリンター");
+                }
+                if (tank.includes(selectedValue)) {
+                    console.log("タンク");
                 }
             });
             $('input[type=radio]').change(function() {
-                console.log('radio1');
                 var radioId = $(this).attr('id');
                 var win1 = document.getElementById("win1");
                 var win2 = document.getElementById("win2");
@@ -48,7 +61,6 @@
                     lose2.classList.remove("RedButtonContent");
                 }
                 else if(radioId === 'lose'){
-                    console.log(win1);
                     win1.classList.add("reBlueButton");
                     win1.classList.remove("BlueButton");
                     win2.classList.add('reBlueButtonContent');
