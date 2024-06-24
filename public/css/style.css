@@ -29,7 +29,15 @@ header {
     justify-content: center;
 }
 
+.flexStart{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .flexEnd{
+    display: flex;
+    align-items: center;
     justify-content: flex-end;
 }
 
@@ -49,6 +57,10 @@ header {
 
 .hidden{
     visibility: hidden;
+}
+
+.h40{
+    height: 40px;
 }
 
 .h35 {
@@ -85,6 +97,18 @@ header {
 
 .w107 {
     width: 107px;
+}
+
+.w40{
+    width: 40px;
+}
+
+.w35{
+    width: 35px;
+}
+
+.w27{
+    width: 27px;
 }
 
 .bottom5{
@@ -128,6 +152,13 @@ header {
     background-color: #fff;
     width: 120px;
     height: 40px;
+    margin-right: 5px;
+    border: #000 1px solid;
+    cursor: pointer;
+}
+
+.buttonCover{
+    background-color: #fff;
     margin-right: 5px;
     border: #000 1px solid;
     cursor: pointer;
@@ -361,10 +392,39 @@ header {
     object-fit: contain;
 }
 
+/*==============================================================================================
+
+	registerMatch
+
+==============================================================================================*/
+
+.headerPart{
+    position: relative;
+    margin-top: 5px;
+    padding-left: 30px;
+}
+
+.headerPart::before{
+    content: "";
+    background: url('../../public/images/standByWhite.png') no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 18px;
+}
+
 .matchBack{
     background-color: #000;
     width: 620px;
     height: auto;
+    margin-top: 30px;
 }
 
 .align_center {
@@ -505,7 +565,8 @@ header {
 
 .redLabel{
     position: relative;
-    background-image: linear-gradient(-45deg, #de2e2e 40%, #fe2f2f 5%, #fe2f2f 50%, #de2e2e 40%, #de2e2e 90%, #fe2f2f 10%, #fe2f2f);
+    background-image: linear-gradient(-45deg, #ff0000 40%, #ff4848 5%, #ff4848 50%, #ff0000 40%, #ff0000 90%, #ff4848 10%, #ff4848);
+    /* background-image: linear-gradient(-45deg, #de2e2e 40%, #fe2f2f 5%, #fe2f2f 50%, #de2e2e 40%, #de2e2e 90%, #fe2f2f 10%, #fe2f2f); */
     background-size: 8px 8px;
     display: flex;
     align-items: center;

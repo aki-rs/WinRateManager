@@ -15,6 +15,10 @@
                 var thisName = $(this).siblings('.subName');
                 var nameHidden = $(this).siblings('.hidden');
                 var searchVisible = $(this).siblings('.visible');
+                var attacker = [4,5,7,11,18,20,21,25,26,34,38,39,44,46,49,50,51,59,62,65,67,69,71,78,79,83];
+                var gunner = [3,8,10,12,22,24,27,28,30,37,41,42,45,52,54,55,60,61,64,72,73,75,77,82];
+                var sprinter = [1,9,14,15,17,19,23,31,32,35,43,47,53,58,63,66,70,74,76,80];
+                var tank = [2,6,13,16,29,33,36,40,48,56,57,68,81];
                 thisName.text(selectedText);
                 nameHidden.css("visibility", "visible");
                 searchVisible.css("visibility", "hidden");
@@ -75,6 +79,9 @@
 
         <div class="flex">
             <div class="matchBack">
+                <div class="flexStart">
+                    <div class="headerPart letterWhite">マッチング登録</div>
+                </div>
                 <div class="flex">
                     <div class="blueLabel">蒼TEAM</div>
                 </div>
@@ -115,28 +122,35 @@
                             <label for="selectForm" class="searchLabel visible">検索中</label>
                             <label for="selectForm" class="blueName subName hidden">味方キャラクター</label>
                         </div>
-                        
                     </div>
+                    <!--==========================================================
 
-                    <!--中間部分-->
+                        中間部分
+
+                    ==========================================================-->
                     <section class="flex">
                         <div class="matchContent flex">
                             <div class="flex">
+                                <div class="addButton flex">
+                                    <div class="Black h35 w115 flex">
+                                        <div class="BlackContent h27 w107 flex">ステージ選択</div>
+                                    </div>
+                                </div>
                                 <label class="">結果</label>
                                 <input type="radio" name="result" value="win" id ="win" required>
                                 <div class="flex">
-                                    <div class="addButton flex">
-                                        <div class="reBlueButton h35 w115 flex win1" id="win1">
-                                            <label class="reBlueButtonContent h27 w107 flex win2" for="win" id="win2">蒼TEAM</label>
+                                    <div class="buttonCover h40 w40 flex">
+                                        <div class="reBlueButton h35 w35 flex win1" id="win1">
+                                            <label class="reBlueButtonContent h27 w27 flex win2" for="win" id="win2">蒼</label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <input type="radio" name="result" value="lose" id="lose" required>
                                 <div class="flex">
-                                    <div class="addButton flex">
-                                        <div class="reRedButton h35 w115 flex lose1" id="lose1">
-                                            <label class="reRedButtonContent h27 w107 flex lose2" for="lose" id="lose2">紅TEAM</label>
+                                    <div class="buttonCover h40 w40 flex">
+                                        <div class="reRedButton h35 w35 flex lose1" id="lose1">
+                                            <label class="reRedButtonContent h27 w27 flex lose2" for="lose" id="lose2">紅</label>
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +169,7 @@
 
                         </div>
                     </section>
-
+                    <!--紅TEAM表示-->
                     <div class="flex">
                         <div class="redLabel">紅TEAM</div>
                     </div>
