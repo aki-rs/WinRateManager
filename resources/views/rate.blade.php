@@ -139,7 +139,7 @@
         <div class="back">
             <section class="winrate back" id="character-win-rate"></section>
         </div>
-        <div class="flex">
+        <div class="flex mt10">
             <div id="resetButton"></div>
         </div>
         
