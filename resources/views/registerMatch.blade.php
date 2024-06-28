@@ -107,7 +107,7 @@
                 <div class="flex">
                     <div class="blueLabel">蒼TEAM</div>
                 </div>
-                <form method="POST" action="{{ route('registerMatch') }}">
+                <form method="POST" action="{{ route('registerMatch') }}" autocomplete="off">
                     @csrf
                     <div class="align_select">
                         <div class="BlueContent">

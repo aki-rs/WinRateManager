@@ -86,48 +86,62 @@
                 }
             });
             $(document).on('click', '#reset', function() {
-                // var characterId = $('#character-select').val();
                 if (characterId) {
                     $('#resetModal input[name="character_id"]').val(characterId);
-            $('#resetModal .character-name').text(characterName);
+                    $('#resetModal .character-name').text(characterName);
                     $('#resetModal').show();
+                    $('body').css('overflow', 'hidden'); 
                 }
             });
 
-            // Modal cancel button click event
             $(document).on('click', '#cancel', function() {
                 $('#resetModal').hide();
+                $('body').css('overflow', 'auto'); 
             });
+
+            // 背景クリックでモーダルを閉じる
+            $(document).on('click', '.modalBack', function() {
+                $('#resetModal').hide();
+                $('body').css('overflow', 'auto');
+            });
+
+            // モーダル内部クリックでイベントの伝播を防ぐ
+            $(document).on('click', '.modal', function(event) {
+                event.stopPropagation();
+            });
+
         });
     </script>
 </head>
 <body>
-    <section id="resetModal" class="modalBack" style="display: none;">
-        <div>
-            <div>
-                <p><span class="character-name"></span>の戦績を全てリセットしますか？</p><br>
-                <p>この操作は取り消しできません</p>
-                <div class="flex">
-                    <a href="" class="addButton flex">
-                        <div class="Yellow h35 w115 flex">
-                            <button method="Post" class="YellowContent h27 w107 flex">リセット</button>
-                        </div>
-                    </a>
-                    <button class="addButton flex" id = "cancel">
-                        <div class="Black h35 w115 flex">
-                            <div class="BlackContent h27 w107 flex">キャンセル</div>
-                        </div>
-                    </button>
-                </div>
+    <form action="{{ route('resetMatch') }}" id="resetModal" class="modalBack"  method="POST" autocomplete="off">
+    <!-- style="display: none;" -->
+        @csrf
+        <div class="modal w415">
+            <input type="" name="character_id" style="display: none;" value="">
+            <p class="character-name"></p>
+            <p>上記キャラクターの戦績を全てリセットしますか？</p>
+            <p>この操作は取り消しできません</p>
+            <div class="flex">
+                <button type="submit" class="addButton flex">
+                    <div class="Yellow h35 w115 flex">
+                        <div class="YellowContent h27 w107 flex">リセット</div>
+                    </div>
+                </button>
+                <a class="addButton flex" id = "cancel">
+                    <div class="Black h35 w115 flex">
+                        <div class="BlackContent h27 w107 flex">キャンセル</div>
+                    </div>
+                </a>
             </div>
         </div>
-    </section>
+    </form>
     <header class="head">
         <div class="header_content">
             <div class="chooser flex">
                 <div class="Black h35 w415 flex">
                     <div class="BlackContent h27 w407 fLeft chooserSize-wrapper">
-                        <select id="character-select" class="chooserSize">
+                        <select id="character-select" class="chooserSize" autocomplete="off">
                             <option value="" disabled selected>-</option>
                             @foreach ($characters as $character)
                                 <option value="{{ $character->id }}">{{ $character->name }}</option>
