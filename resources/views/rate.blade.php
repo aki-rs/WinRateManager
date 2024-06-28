@@ -9,8 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            var characterId;
+            var characterName;
             $('#character-select').change(function() {
-                var characterId = $(this).val();
+                characterId = $(this).val();
+                characterName = $(this).find('option:selected').text();
                 if (characterId) {
                     $.ajax({
                         url: "{{ route('calcWinRate') }}",
@@ -82,29 +85,43 @@
                     $('#resetButton').hetml('');
                 }
             });
+            $(document).on('click', '#reset', function() {
+                // var characterId = $('#character-select').val();
+                if (characterId) {
+                    $('#resetModal input[name="character_id"]').val(characterId);
+            $('#resetModal .character-name').text(characterName);
+                    $('#resetModal').show();
+                }
+            });
+
+            // Modal cancel button click event
+            $(document).on('click', '#cancel', function() {
+                $('#resetModal').hide();
+            });
         });
     </script>
 </head>
 <body>
-    <!-- <section id="resetModal" class="modalBack">
+    <section id="resetModal" class="modalBack" style="display: none;">
         <div>
             <div>
-                <p>このキャラクターの戦績を削除しますか？</p>
+                <p><span class="character-name"></span>の戦績を全てリセットしますか？</p><br>
+                <p>この操作は取り消しできません</p>
                 <div class="flex">
                     <a href="" class="addButton flex">
                         <div class="Yellow h35 w115 flex">
-                            <div class="YellowContent h27 w107 flex">削除</div>
+                            <button method="Post" class="YellowContent h27 w107 flex">リセット</button>
                         </div>
                     </a>
-                    <a href="" class="addButton flex">
+                    <button class="addButton flex" id = "cancel">
                         <div class="Black h35 w115 flex">
                             <div class="BlackContent h27 w107 flex">キャンセル</div>
                         </div>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <header class="head">
         <div class="header_content">
             <div class="chooser flex">
@@ -115,7 +132,6 @@
                             @foreach ($characters as $character)
                                 <option value="{{ $character->id }}">{{ $character->name }}</option>
                             @endforeach
-                            <p>▼</p>
                         </select>
                     </div>
                 </div>

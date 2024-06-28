@@ -24,4 +24,5 @@ Route::get('registerMatch',[MatchController::class,'moveToRegisterMatch'])->name
 Route::post('registerMatch',[MatchController::class,'registerMatchFanc'])->name('registerMatch')->middleware('auth');
 Route::get('rate', [MatchController::class, 'moveToRate'])->name('moveToRate')->middleware('auth');
 Route::post('get-character-win-rate', [MatchController::class, 'calcWinRate'])->name('calcWinRate')->middleware('auth');
+Route::post('resetMatch',[MatchController::class,'resetMatch'])->name('resetMatch')->middleware('auth');
 

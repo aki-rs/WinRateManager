@@ -22,7 +22,7 @@
                 var characterImg = $(this).siblings('.characterImg')[0];
                 var visImg = $(this).siblings('.characterImg');
                 var roleImg = $(this).siblings('.roleIcon')[0];
-                // var visRole = $(this).siblings('roleIcon');
+                var visRole = $(this).siblings('.roleIcon');
                 var attacker = [4, 5, 7, 11, 18, 20, 21, 25, 26, 34, 38, 39, 44, 46, 49, 50, 51, 59, 62, 65, 67, 69, 71, 78, 79, 83];
                 var gunner = [3, 8, 10, 12, 22, 24, 27, 28, 30, 37, 41, 42, 45, 52, 54, 55, 60, 61, 64, 72, 73, 75, 77, 82];
                 var sprinter = [1, 9, 14, 15, 17, 19, 23, 31, 32, 35, 43, 47, 53, 58, 63, 66, 70, 74, 76, 80];
@@ -33,29 +33,22 @@
                 nameHidden.css("visibility", "visible");
                 searchVisible.css("visibility", "hidden");
                 visImg.css("visibility", "visible");
-                // visRole.css("visibility", "visible");
+                visRole.css("visibility", "visible");
                 
                 if ($(this).val() !== "") {
                     siblingDiv.removeClass('standByAnim');
                     characterImg.src = `{{ asset('storage/images/2/${selectedValue}.png') }}`;
                 }
-                if (selectedText == "アイズ・ヴァレンシュタイン" || selectedText == "アル・ダハブ=アルカティア") {
-                    thisName.css("font-size", "15px");
-                }
                 if (attacker.includes(selectedValue)) {
-                    console.log("アタッカー");
                     roleImg.src = `{{ asset('storage/images/3/attacker.PNG') }}`;
                 }
                 if (gunner.includes(selectedValue)) {
-                    console.log("ガンナー");
                     roleImg.src = `{{ asset('storage/images/3/gunner.PNG') }}`;
                 }
                 if (sprinter.includes(selectedValue)) {
-                    console.log("スプリンター");
                     roleImg.src = `{{ asset('storage/images/3/sprinter.PNG') }}`;
                 }
                 if (tank.includes(selectedValue)) {
-                    console.log("タンク");
                     roleImg.src = `{{ asset('storage/images/3/tank.PNG') }}`;
                 }
             });
@@ -106,6 +99,11 @@
                 <div class="flexStart">
                     <div class="headerPart letterWhite">マッチング登録</div>
                 </div>
+                <!--==========================================================
+
+                    蒼TEAM表示
+
+                ==========================================================-->
                 <div class="flex">
                     <div class="blueLabel">蒼TEAM</div>
                 </div>
@@ -211,7 +209,11 @@
 
                         </div>
                     </section>
-                    <!--紅TEAM表示-->
+                    <!--==========================================================
+
+                        紅TEAM表示
+
+                    ==========================================================-->
                     <div class="flex">
                         <div class="redLabel">紅TEAM</div>
                     </div>

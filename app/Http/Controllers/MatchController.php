@@ -200,4 +200,37 @@ class MatchController extends Controller
             'characterId' => $character->id
         ]);
     }
+
+    //試合リセット用関数
+    // public function resetMatch(Request $request){
+    //     $matchcharacter = MatchCharacter::find($request->character_id);
+    //     $matchcharacter->delete();
+    //     $gamematch = GameMatch::find(Auth::id(),$request->match_id);
+    //     $gamematch->delete();
+    //     return redirect()->route('moveToRate');
+    // }
+
+
+    public function resetMatch(Request $request){
+        $user = Auth::user();
+    
+        $gameMatch = GameMatch::where('id', $request->match_id)
+                        ->where('user_id', $user->id)
+                        ->first();
+    
+        if ($gameMatch) {
+            $matchCharacter = MatchCharacter::where('id', $request->character_id)
+                        ->where('match_id', $gameMatch->id)
+                        ->first();
+
+            if ($matchCharacter) {
+                $matchCharacter->delete();
+            }
+
+            $gameMatch->delete();
+        }
+    
+        return redirect()->route('moveToRate');
+    }
+    
 }
