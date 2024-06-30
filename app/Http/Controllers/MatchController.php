@@ -237,15 +237,8 @@ class MatchController extends Controller
     // }
 
     public function resetMatch(Request $request){
-        // Log::info('Reset match called with character_id: ' . $request->character_id);
-        // $allMatches = GameMatch::all();
-        // foreach ($allMatches as $match) {
-        //     Log::info('GameMatch ID: ' . $match->id . ', User ID: ' . $match->user_id);
-        // }
-    
         $user = Auth::user();
     
-        // ユーザーに関連する全ての試合を取得
         $gameMatches = GameMatch::where('user_id', $user->id)->get();
         if ($gameMatches->isEmpty()) {
             Log::info('No game matches found for user id: ' . $user->id);
@@ -254,30 +247,20 @@ class MatchController extends Controller
     
         foreach($gameMatches as $gameMatch){
     
-            // 指定されたキャラクターIDとroleがselfの試合キャラクターを取得
             $matchCharacters = MatchCharacter::where('match_id', $gameMatch->id)
                                     ->where('character_id', $request->character_id)
                                     ->where('role', "player")
                                     ->get();
-
-            if ($matchCharacters->isEmpty()) {
-                Log::info('error');
-            }
     
-            // それぞれの試合キャラクターに対して操作
             foreach($matchCharacters as $matchCharacter){
-                Log::info('Processing match character with id: ' . $matchCharacter->id);
-    
-                // 同じ試合IDの全ての試合キャラクターを取得
                 $deleteMatchCharacters = MatchCharacter::where('match_id', $matchCharacter->match_id)->get();
+
                 if($deleteMatchCharacters){
-                    // 同じ試合IDのゲームマッチを取得
                     $deleteGameMatch = GameMatch::where('id', $matchCharacter->match_id)->first();
-                    // 全ての試合キャラクターを削除
+
                     foreach ($deleteMatchCharacters as $deleteMatchCharacter) {
                         $deleteMatchCharacter->delete();
                     }
-                    // 試合自体を削除
                     if($deleteGameMatch){
                         $deleteGameMatch->delete();
                     }

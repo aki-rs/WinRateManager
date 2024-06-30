@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
 html {
     max-width: 1600px;
     background-image: linear-gradient(-45deg, #fff 25%, #d9d9d9 25%, #d9d9d9 50%, #fff 50%, #fff 75%, #d9d9d9 75%, #d9d9d9);
@@ -7,6 +9,11 @@ html {
 
 .head {
     align-items: center;
+}
+
+body{
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 500;
 }
 
 header {
@@ -259,6 +266,7 @@ header {
     margin-bottom: 5px;
     width: 315px;
     height: 150px;
+    font-size: 18px;
     background-color: #000;
     display: flex;
     justify-content: space-between;
@@ -356,7 +364,6 @@ header {
 
 .titleImg {
     /* Img1 */
-    /* background-image: url('../../public/2/1.PNG'); */
     background-size: cover;
     background-position: center;
     mask-image: linear-gradient(to right, white 85%, transparent);
@@ -536,7 +543,6 @@ header {
     color: #fff;
     margin-top: 5px;
     padding-left: 28px;
-    /* margin-bottom: 1px; */
 }
 
 .blueLabel::before{
@@ -590,7 +596,6 @@ header {
     color: #fff;
     margin-top: 5px;
     padding-left: 28px;
-    /* margin-bottom: 1px; */
 }
 
 .redLabel::before{
@@ -664,7 +669,9 @@ input[type = radio]{
     display: none;
 }
 
-
+/*===============================================
+	勝敗ボタン
+================================================*/
 .BlueButton {
     background-color: #1E3A9D;
 }
@@ -705,10 +712,6 @@ input[type = radio]{
     color: #fff;
 }
 
-
-
-
-
 .RedButton {
     background-color: #9D1E1E;
 }
@@ -728,8 +731,6 @@ input[type = radio]{
     background-size: 8px 8px;
     color: #fff;
 }
-
-
 
 .reRedButton {
     background-color: #ebd5d5;
@@ -760,6 +761,8 @@ input[type = radio]{
     opacity: 0.96;
     z-index: 1;
 }
+
+
 
 .selectContainer {
     position: relative;
@@ -802,14 +805,15 @@ input[type = radio]{
     z-index: 1;
 }
 
+/*==============================================================================================
 
+	モーダル部分
 
-
-
-
-
-
-
+==============================================================================================*/
+.character-name{
+    font-weight: 900;
+    margin-bottom: 5px;
+}
 
 .modalBack {
     position: fixed;
@@ -822,6 +826,7 @@ input[type = radio]{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     z-index: 1000;
 }
 
@@ -835,9 +840,49 @@ input[type = radio]{
     background-size: 8px 8px;
     width: 415px;
     height: auto;
+    padding: 15px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    font-weight: 600;
+    line-height: 1.5;
 }
 
+.confirmImg{
+    width: 14.6px;
+    height: 20px;
+    margin-left: 5px;
+    object-position: center;
+    object-fit: cover;
+}
+
+.modalConfirm{
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+    width: 415px;
+    border-bottom: 1px solid #fff;
+}
+
+.headerConfirm{
+    padding-left: 10px;
+}
+
+/* .headerConfirm::before{
+    content: "";
+    background: url('../../public/images/confirm.png') no-repeat;
+    background-size: contain;
+    padding-left: 25px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-right: 5px;
+    padding-bottom: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 18px;
+} */

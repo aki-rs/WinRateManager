@@ -23,6 +23,8 @@
                 var visImg = $(this).siblings('.characterImg');
                 var roleImg = $(this).siblings('.roleIcon')[0];
                 var visRole = $(this).siblings('.roleIcon');
+
+                // アイコン表示用
                 var attacker = [4, 5, 7, 11, 18, 20, 21, 25, 26, 34, 38, 39, 44, 46, 49, 50, 51, 59, 62, 65, 67, 69, 71, 78, 79, 83];
                 var gunner = [3, 8, 10, 12, 22, 24, 27, 28, 30, 37, 41, 42, 45, 52, 54, 55, 60, 61, 64, 72, 73, 75, 77, 82];
                 var sprinter = [1, 9, 14, 15, 17, 19, 23, 31, 32, 35, 43, 47, 53, 58, 63, 66, 70, 74, 76, 80];
@@ -39,6 +41,12 @@
                     siblingDiv.removeClass('standByAnim');
                     characterImg.src = `{{ asset('storage/images/2/${selectedValue}.png') }}`;
                 }
+
+                /*==========================================================
+
+                ロールアイコン表示設定
+
+                ==========================================================*/
                 if (attacker.includes(selectedValue)) {
                     roleImg.src = `{{ asset('storage/images/3/attacker.PNG') }}`;
                 }
@@ -99,6 +107,7 @@
                 <div class="flexStart">
                     <div class="headerPart letterWhite">マッチング登録</div>
                 </div>
+
                 <!--==========================================================
 
                     蒼TEAM表示
@@ -154,6 +163,7 @@
                             <label for="selectForm" class="blueName subName hidden">味方キャラクター</label>
                         </div>
                     </div>
+
                     <!--==========================================================
 
                         中間部分
@@ -209,6 +219,7 @@
 
                         </div>
                     </section>
+
                     <!--==========================================================
 
                         紅TEAM表示

@@ -24,6 +24,11 @@
                             character_id: characterId
                         },
                         success: function(data) {
+                            /*==========================================================
+
+                                キャラクター毎勝率表示部分
+
+                            ==========================================================*/
                             var winRateHtml = `
                                 <div class="winrate">
                                     <div class="title">
@@ -51,6 +56,12 @@
                                     </ul>
                                 </div>
                             `;
+
+                            /*==========================================================
+
+                                使用キャラクター勝率表示部分
+
+                            ==========================================================*/
                             var playerRateHtml = `
                                 <div class="playerBack">
                                     <div class="backPart">
@@ -64,6 +75,12 @@
                                     </div>
                                 </div>
                             `;
+
+                            /*==========================================================
+
+                                ステージ勝率表示部分
+
+                            ==========================================================*/
                             var resetButton =`
                                 <button href="" class="addButton flex" id="reset">
                                     <div class="Black h35 w115 flex">
@@ -85,27 +102,30 @@
                     $('#resetButton').hetml('');
                 }
             });
+
+            //リセットボタン押下
             $(document).on('click', '#reset', function() {
                 if (characterId) {
-                    $('#resetModal input[name="character_id"]').val(characterId);
-                    $('#resetModal .character-name').text(characterName);
+                    $('#resetModal input[name="character_id"]').val(characterId);//リセット用
+                    $('#resetModal .character-name').text(characterName);//モーダル内キャラクター名表示用
                     $('#resetModal').show();
                     $('body').css('overflow', 'hidden'); 
                 }
             });
 
+            //キャンセルボタンクリックでモーダルキャンセル
             $(document).on('click', '#cancel', function() {
                 $('#resetModal').hide();
                 $('body').css('overflow', 'auto'); 
             });
 
-            // 背景クリックでモーダルを閉じる
+            //モーダル背景クリックでキャンセル
             $(document).on('click', '.modalBack', function() {
                 $('#resetModal').hide();
                 $('body').css('overflow', 'auto');
             });
 
-            // モーダル内部クリックでイベントの伝播を防ぐ
+            //フォーム内クリックによるモーダルキャンセル防止
             $(document).on('click', '.modal', function(event) {
                 event.stopPropagation();
             });
@@ -114,30 +134,52 @@
     </script>
 </head>
 <body>
-    <form action="{{ route('resetMatch') }}" id="resetModal" class="modalBack"  method="POST" autocomplete="off">
-    <!-- style="display: none;" -->
+    <!--==========================================================
+
+        モーダルウィンドウ
+
+    ==========================================================-->
+    <form action="{{ route('resetMatch') }}" id="resetModal" class="modalBack"  method="POST" style="display: none;" autocomplete="off">
         @csrf
-        <div class="modal w415">
-            <input type="" name="character_id" style="display: none;" value="">
-            <p class="character-name"></p>
-            <p>上記キャラクターの戦績を全てリセットしますか？</p>
-            <p>この操作は取り消しできません</p>
-            <div class="flex">
-                <button type="submit" class="addButton flex">
-                    <div class="Yellow h35 w115 flex">
-                        <div class="YellowContent h27 w107 flex">リセット</div>
-                    </div>
-                </button>
-                <a class="addButton flex" id = "cancel">
-                    <div class="Black h35 w115 flex">
-                        <div class="BlackContent h27 w107 flex">キャンセル</div>
-                    </div>
-                </a>
+        <div class="w415">
+            <div class="modalConfirm flexStart">
+                <img src="{{ asset('images/confirm.PNG') }}" alt="" class="confirmImg">
+                <p class="headerConfirm letterWhite">確認</p>
+            </div>
+            <div class="modal w415">
+
+                <!-- 確認表示 -->
+                <input type="" name="character_id" style="display: none;" value="">
+                <p class="character-name"></p>
+                <p>上記キャラクターの戦績を全てリセットしますか？</p>
+                <p>この操作は取り消しできません</p>
+
+                <!-- ボタン -->
+                <div class="mt10 flex">
+                    <button type="submit" class="addButton flex">
+                        <div class="Yellow h35 w115 flex">
+                            <div class="YellowContent h27 w107 flex">リセット</div>
+                        </div>
+                    </button>
+                    <a class="addButton flex" id = "cancel">
+                        <div class="Black h35 w115 flex">
+                            <div class="BlackContent h27 w107 flex">キャンセル</div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </form>
+
+    <!--==========================================================
+
+        ヘッダー
+
+    ==========================================================-->
     <header class="head">
         <div class="header_content">
+
+            <!-- 表示キャラクター選択 -->
             <div class="chooser flex">
                 <div class="Black h35 w415 flex">
                     <div class="BlackContent h27 w407 fLeft chooserSize-wrapper">
@@ -150,7 +192,8 @@
                     </div>
                 </div>
             </div>
-            
+
+            <!-- ボタン -->
             <a href="{{ route('moveToRegisterMatch') }}" class="addButton flex">
                 <div class="Yellow h35 w115 flex">
                     <div class="YellowContent h27 w107 flex">戦績登録</div>
@@ -164,6 +207,12 @@
             </form>
         </div>
     </header>
+
+    <!--==========================================================
+
+        勝率表示部分
+
+    ==========================================================-->
     <main>
         <section id="player-win-rate"></section>
         <div class="back">
