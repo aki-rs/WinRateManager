@@ -14,11 +14,21 @@
                 $('#selectedStage').text(selectedStage);
             });
             $('select').change(function() {
+                //選択したキャラクター名取得
                 var selectedText = $(this).find("option:selected").text();
+                //検索中アニメーション
                 var siblingDiv = $(this).siblings('.showContent');
+
+                //キャラ名のラベル
                 var thisName = $(this).siblings('.subName');
+
+                //
                 var nameHidden = $(this).siblings('.hidden');
+
+                //検索中表示
                 var searchVisible = $(this).siblings('.visible');
+
+                //キャラクター画像
                 var characterImg = $(this).siblings('.characterImg')[0];
                 var visImg = $(this).siblings('.characterImg');
                 var roleImg = $(this).siblings('.roleIcon')[0];
@@ -31,14 +41,20 @@
                 var tank = [2, 6, 13, 16, 29, 33, 36, 40, 48, 56, 57, 68, 81, 84];
                 var selectedValue = parseInt($(this).val(), 10);
 
+                //キャラ名のラベル設定
                 thisName.text(selectedText);
+
+                //
                 nameHidden.css("visibility", "visible");
                 searchVisible.css("visibility", "hidden");
                 visImg.css("visibility", "visible");
                 visRole.css("visibility", "visible");
                 
                 if ($(this).val() !== "") {
+                    //検索中アニメーション消去
                     siblingDiv.removeClass('standByAnim');
+
+                    //キャラクター画像表示
                     characterImg.src = `{{ asset('storage/images/2/${selectedValue}.png') }}`;
                 }
 
@@ -119,6 +135,12 @@
                 <form method="POST" action="{{ route('registerMatch') }}" autocomplete="off">
                     @csrf
                     <div class="align_select">
+
+                        <!--==========================================================
+
+                            自キャラ
+
+                        ==========================================================-->
                         <div class="BlueContent">
                             <div class="standByAnim showContent"></div>
                             <img src="" class="roleIcon">
@@ -133,6 +155,11 @@
                             <label for="selectForm" class="blueName">プレイヤー</label>
                         </div>
                         
+                        <!--==========================================================
+
+                            味方1
+
+                        ==========================================================-->
                         <div class="BlueContent">
                             <div class="standByAnim showContent"></div>
                             <img src="" class="roleIcon">
@@ -147,7 +174,12 @@
                             <label for="selectForm" class="searchLabel visible">検索中</label>
                             <label for="selectForm" class="blueName subName hidden">味方キャラクター</label>
                         </div>
-                        
+
+                        <!--==========================================================
+
+                            味方2
+
+                        ==========================================================-->
                         <div class="BlueContent">
                             <div class="standByAnim showContent"></div>
                             <img src="" class="roleIcon">
@@ -173,8 +205,8 @@
                         <div class="matchContent flex">
                             <div class="flexBetween">
                                 <div class="addButton flex">
-                                    <div class="Black h35 w115 flex">
-                                        <div class="BlackContent h27 w107 flex">
+                                    <div class="Black h36 w116 flex">
+                                        <div class="BlackContent h28 w108 flex">
                                             <div class="selectContainer">
                                                 <select name="stage" id="stageSelect" required>
                                                     <option value="" disabled selected>-</option>
@@ -190,8 +222,8 @@
                                 <input type="radio" name="result" value="win" id ="win" required>
                                 <div class="flex">
                                     <div class="buttonCover h40 w40 flex">
-                                        <div class="reBlueButton h35 w35 flex win1" id="win1">
-                                            <label class="reBlueButtonContent h27 w27 flex win2" for="win" id="win2">蒼</label>
+                                        <div class="reBlueButton h36 w36 flex win1" id="win1">
+                                            <label class="reBlueButtonContent h28 w27 flex win2" for="win" id="win2">蒼</label>
                                         </div>
                                     </div>
                                 </div>
@@ -199,15 +231,15 @@
                                 <input type="radio" name="result" value="lose" id="lose" required>
                                 <div class="flex">
                                     <div class="buttonCover h40 w40 flex">
-                                        <div class="reRedButton h35 w35 flex lose1" id="lose1">
-                                            <label class="reRedButtonContent h27 w27 flex lose2" for="lose" id="lose2">紅</label>
+                                        <div class="reRedButton h36 w36 flex lose1" id="lose1">
+                                            <label class="reRedButtonContent h28 w27 flex lose2" for="lose" id="lose2">紅</label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <button class="addButton flex" type="submit">
-                                    <div class="Yellow h35 w115 flex">
-                                        <div class="YellowContent h27 w107 flex">登録</div>
+                                    <div class="Yellow h36 w116 flex">
+                                        <div class="YellowContent h28 w108 flex">登録</div>
                                     </div>
                                 </button>
                             </div>
@@ -229,6 +261,12 @@
                         <div class="redLabel">紅TEAM</div>
                     </div>
                     <div class="align_select bottom5">
+
+                        <!--==========================================================
+
+                            相手1
+
+                        ==========================================================-->
                         <div class="RedContent">
                             <div class="standByAnim showContent"></div>
                             <img src="" class="roleIcon">
@@ -244,6 +282,11 @@
                             <label for="selectForm" class="redName subName hidden">敵キャラクター</label>
                         </div>
 
+                        <!--==========================================================
+
+                            相手2
+
+                        ==========================================================-->
                         <div class="RedContent">
                             <div class="standByAnim showContent"></div>
                             <img src="" class="roleIcon">
@@ -259,6 +302,11 @@
                             <label for="selectForm" class="redName subName hidden">敵キャラクター</label>
                         </div>
 
+                        <!--==========================================================
+
+                            相手3
+
+                        ==========================================================-->
                         <div class="RedContent">
                             <div class="standByAnim showContent"></div>
                             <img src="" class="roleIcon">
@@ -280,8 +328,8 @@
 
         <div class="flex mt10">
             <a href="{{ route('moveToRate') }}" class="addButton flex">
-                <div class="Black h35 w115 flex">
-                    <div class="BlackContent h27 w107 flex">戻る</div>
+                <div class="Black h36 w116 flex">
+                    <div class="BlackContent h28 w108 flex">戻る</div>
                 </div>
             </a>
         </div>

@@ -72,7 +72,7 @@ class MatchController extends Controller
         return redirect()->route('moveToRate')->with('status', '正常に保存されました。');
     }
 
-    //勝率表示画面遷移
+    //勝率表示画面遷移用関数
     public function moveToRate(){
         $matches = GameMatch::where('user_id', Auth::id())->with('stage', 'matchCharacters.character')->get();
         $characters = Character::all();
@@ -203,50 +203,15 @@ class MatchController extends Controller
         ]);
     }
 
-    //試合リセット用関数
-    // public function resetMatch(Request $request){
-    //     $matchcharacter = MatchCharacter::find($request->character_id);
-    //     $matchcharacter->delete();
-    //     $gamematch = GameMatch::find(Auth::id(),$request->match_id);
-    //     $gamematch->delete();
-    //     return redirect()->route('moveToRate');
-    // }
-
-
-    //戦績リセット用関数
-    // public function resetMatch(Request $request){
-    //     $user = Auth::user();
-    
-    //     $gameMatch = GameMatch::where('id', $request->match_id)
-    //                     ->where('user_id', $user->id)
-    //                     ->first();
-    
-    //     if ($gameMatch) {
-    //         $matchCharacter = MatchCharacter::where('id', $request->character_id)
-    //                     ->where('match_id', $gameMatch->id)
-    //                     ->first();
-
-    //         if ($matchCharacter) {
-    //             $matchCharacter->delete();
-    //         }
-
-    //         $gameMatch->delete();
-    //     }
-    
-    //     return redirect()->route('moveToRate');
-    // }
-
+    //リセット用関数
     public function resetMatch(Request $request){
         $user = Auth::user();
-    
+        //ユーザー毎の試合取得
         $gameMatches = GameMatch::where('user_id', $user->id)->get();
-        if ($gameMatches->isEmpty()) {
-            Log::info('No game matches found for user id: ' . $user->id);
-        }
-        
     
         foreach($gameMatches as $gameMatch){
     
+            //選択したキャラクターの試合取得
             $matchCharacters = MatchCharacter::where('match_id', $gameMatch->id)
                                     ->where('character_id', $request->character_id)
                                     ->where('role', "player")

@@ -26,7 +26,7 @@
                         success: function(data) {
                             /*==========================================================
 
-                                キャラクター毎勝率表示部分
+                                キャラクター毎/ステージ毎の勝率表示部分
 
                             ==========================================================*/
                             var winRateHtml = `
@@ -83,8 +83,8 @@
                             ==========================================================*/
                             var resetButton =`
                                 <button href="" class="addButton flex" id="reset">
-                                    <div class="Black h35 w115 flex">
-                                        <div class="BlackContent h27 w107 flex">リセット</div>
+                                    <div class="Black h36 w116 flex">
+                                        <div class="BlackContent h28 w108 flex">リセット</div>
                                     </div>
                                 </button>
                             `;
@@ -157,13 +157,13 @@
                 <!-- ボタン -->
                 <div class="mt10 flex">
                     <button type="submit" class="addButton flex">
-                        <div class="Yellow h35 w115 flex">
-                            <div class="YellowContent h27 w107 flex">リセット</div>
+                        <div class="Yellow h36 w116 flex">
+                            <div class="YellowContent h28 w108 flex">リセット</div>
                         </div>
                     </button>
                     <a class="addButton flex" id = "cancel">
-                        <div class="Black h35 w115 flex">
-                            <div class="BlackContent h27 w107 flex">キャンセル</div>
+                        <div class="Black h36 w116 flex">
+                            <div class="BlackContent h28 w108 flex">キャンセル</div>
                         </div>
                     </a>
                 </div>
@@ -181,8 +181,8 @@
 
             <!-- 表示キャラクター選択 -->
             <div class="chooser flex">
-                <div class="Black h35 w415 flex">
-                    <div class="BlackContent h27 w407 fLeft chooserSize-wrapper">
+                <div class="Black h36 w415 flex">
+                    <div class="BlackContent h28 w407 fLeft chooserSize-wrapper">
                         <select id="character-select" class="chooserSize" autocomplete="off">
                             <option value="" disabled selected>-</option>
                             @foreach ($characters as $character)
@@ -195,14 +195,14 @@
 
             <!-- ボタン -->
             <a href="{{ route('moveToRegisterMatch') }}" class="addButton flex">
-                <div class="Yellow h35 w115 flex">
-                    <div class="YellowContent h27 w107 flex">戦績登録</div>
+                <div class="Yellow h36 w116 flex">
+                    <div class="YellowContent h28 w108 flex">戦績登録</div>
                 </div>
             </a>
             <form action="{{ route('logout') }}" method="POST" class="LogOut flex">
                 @csrf
-                <button type="submit" class="Black h35 w115 flex">
-                    <div class="BlackContent h27 w107 flex">ログアウト</div>
+                <button type="submit" class="Black h36 w116 flex">
+                    <div class="BlackContent h28 w108 flex">ログアウト</div>
                 </button>
             </form>
         </div>
