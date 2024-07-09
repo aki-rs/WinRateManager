@@ -16,13 +16,14 @@
             $('select').change(function() {
                 //選択したキャラクター名取得
                 var selectedText = $(this).find("option:selected").text();
+
                 //検索中アニメーション
                 var siblingDiv = $(this).siblings('.showContent');
 
-                //キャラ名のラベル
+                //キャラ名ラベル設定用
                 var thisName = $(this).siblings('.subName');
 
-                //
+                //キャラ名ラベル非表示
                 var nameHidden = $(this).siblings('.hidden');
 
                 //検索中表示
@@ -31,6 +32,8 @@
                 //キャラクター画像
                 var characterImg = $(this).siblings('.characterImg')[0];
                 var visImg = $(this).siblings('.characterImg');
+
+                //ロール画像
                 var roleImg = $(this).siblings('.roleIcon')[0];
                 var visRole = $(this).siblings('.roleIcon');
 
@@ -44,10 +47,16 @@
                 //キャラ名のラベル設定
                 thisName.text(selectedText);
 
-                //
+                //キャラ名ラベル表示
                 nameHidden.css("visibility", "visible");
+
+                //検索中削除
                 searchVisible.css("visibility", "hidden");
+
+                //キャラクター画像表示
                 visImg.css("visibility", "visible");
+
+                //ロール画像表示
                 visRole.css("visibility", "visible");
                 
                 if ($(this).val() !== "") {
@@ -77,6 +86,11 @@
                 }
             });
             
+            /*==========================================================
+
+                勝敗ラジオボタン設定
+
+            ==========================================================*/
             $('input[type=radio]').change(function() {
                 var radioId = $(this).attr('id');
                 var win1 = document.getElementById("win1");
