@@ -189,6 +189,7 @@ class MatchController extends Controller
             }
     
             $stageWinRate[] = [
+                'id' => $st_id,
                 'name' => $stage->name,
                 'stageWinRate' => $stageWin !== '-' ? number_format($stageWin, 2) : '-',
             ];

@@ -48,12 +48,20 @@
                                             </li>
                                         `).join('')}
                                     </ul>
-                                    <h4>ステージ勝率</h4>
+                                    <h4 class="">ステージ勝率</h4>
                                     <ul>
                                         ${data.stageWinRates.map(rate => `
-                                            <li>${rate.name}: ${rate.stageWinRate}</li>
+                                            <li class="stageRate">
+                                                <div class="stageImgPart">
+                                                    <img src="{{ asset('images/stages/${rate.id}.PNG') }}" class="stageImg" alt="${rate.name}">
+                                                </div>
+                                                <div class="YPos">
+                                                    <p class="stageItemList">${rate.stageWinRate}</p>
+                                                </div>
+                                            </li>
                                         `).join('')}
                                     </ul>
+                                    <div class="dammy"></div>
                                 </div>
                             `;
 
@@ -78,7 +86,7 @@
 
                             /*==========================================================
 
-                                ステージ勝率表示部分
+                                リセットボタン表示部分
 
                             ==========================================================*/
                             var resetButton =`
@@ -143,6 +151,8 @@
         @csrf
         <div class="w415">
             <div class="modalConfirm flexStart">
+
+                <!-- 確認アイコン -->
                 <img src="{{ asset('images/confirm.PNG') }}" alt="" class="confirmImg">
                 <p class="headerConfirm letterWhite">確認</p>
             </div>

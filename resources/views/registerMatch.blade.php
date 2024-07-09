@@ -204,6 +204,8 @@
                     <section class="flex">
                         <div class="matchContent flex">
                             <div class="flexBetween">
+
+                                <!-- ステージ選択 -->
                                 <div class="addButton flex">
                                     <div class="Black h36 w116 flex">
                                         <div class="BlackContent h28 w108 flex">
@@ -218,7 +220,11 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- 勝敗入力 -->
                                 <label class="">勝利TEAM</label>
+
+                                <!-- 蒼(勝ち) -->
                                 <input type="radio" name="result" value="win" id ="win" required>
                                 <div class="flex">
                                     <div class="buttonCover h40 w40 flex">
@@ -228,6 +234,7 @@
                                     </div>
                                 </div>
 
+                                <!-- 紅(負け) -->
                                 <input type="radio" name="result" value="lose" id="lose" required>
                                 <div class="flex">
                                     <div class="buttonCover h40 w40 flex">
@@ -237,6 +244,7 @@
                                     </div>
                                 </div>
 
+                                <!-- 登録ボタン -->
                                 <button class="addButton flex" type="submit">
                                     <div class="Yellow h36 w116 flex">
                                         <div class="YellowContent h28 w108 flex">登録</div>
@@ -244,6 +252,7 @@
                                 </button>
                             </div>
 
+                            <!-- 選択ステージ表示 -->
                             <div class="stageShowPart">
                                 <div>選択ステージ</div>
                                 <div class="" id="selectedStage">-</div>
@@ -260,7 +269,7 @@
                     <div class="flex">
                         <div class="redLabel">紅TEAM</div>
                     </div>
-                    <div class="align_select bottom5">
+                    <div class="align_select mb5">
 
                         <!--==========================================================
 
