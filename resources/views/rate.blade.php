@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name=”viewport” content=”width=device-width,initial-scale=1.0″>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -74,12 +75,15 @@
                                 <div class="playerBack">
                                     <div class="backPart">
                                         <div class="playerPart">
-                                            <p class="letterWhite">${data.characterName}</p>
-                                            <p class="showPRate">${data.playerWinRate}</p>
+                                            <div class="centralPart">
+                                                <p class="letterWhite">${data.characterName}</p>
+                                                <p class="showPRate">${data.playerWinRate}</p>
+                                            </div>
+                                            <div class="totalCount">
+                                                <p class="showCount">試合登録数: ${data.playerTotal}</p>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <img src="{{ asset('images/1/${data.characterId}.PNG') }}" class="playerImg" alt="${data.characterName}">
-                                        </div>
+                                        <img src="{{ asset('images/1/${data.characterId}.PNG') }}" class="playerImg" alt="${data.characterName}">
                                     </div>
                                 </div>
                             `;
@@ -160,9 +164,11 @@
 
                 <!-- 確認表示 -->
                 <input type="" name="character_id" style="display: none;" value="">
-                <p class="character-name"></p>
+                <div class="characterConfirmPart">
+                    <p class="character-name"></p>
+                </div>
                 <p>上記キャラクターの戦績を全てリセットしますか？</p>
-                <p>この操作は取り消しできません</p>
+                <p class="letterRed">この操作は取り消しできません</p>
 
                 <!-- ボタン -->
                 <div class="mt10 flex">
@@ -188,33 +194,35 @@
     ==========================================================-->
     <header class="head">
         <div class="header_content">
+            <div class="chooser">
 
-            <!-- 表示キャラクター選択 -->
-            <div class="chooser flex">
-                <div class="Black h36 w415 flex">
-                    <div class="BlackContent h28 w407 fLeft chooserSize-wrapper">
-                        <select id="character-select" class="chooserSize" autocomplete="off">
-                            <option value="" disabled selected>-</option>
-                            @foreach ($characters as $character)
-                                <option value="{{ $character->id }}">{{ $character->name }}</option>
-                            @endforeach
-                        </select>
+                <!-- 表示キャラクター選択 -->
+                <div class="flex left-item">
+                    <div class="Black h36 w415 flex">
+                        <div class="BlackContent h28 w407 fLeft chooserSize-wrapper">
+                            <select id="character-select" class="chooserSize" autocomplete="off">
+                                <option value="" disabled selected>-</option>
+                                @foreach ($characters as $character)
+                                    <option value="{{ $character->id }}">{{ $character->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- ボタン -->
-            <a href="{{ route('moveToRegisterMatch') }}" class="addButton flex">
-                <div class="Yellow h36 w116 flex">
-                    <div class="YellowContent h28 w108 flex">戦績登録</div>
-                </div>
-            </a>
-            <form action="{{ route('logout') }}" method="POST" class="LogOut flex">
-                @csrf
-                <button type="submit" class="Black h36 w116 flex">
-                    <div class="BlackContent h28 w108 flex">ログアウト</div>
-                </button>
-            </form>
+                <!-- ボタン -->
+                <a href="{{ route('moveToRegisterMatch') }}" class="addButton flex middle-item">
+                    <div class="Yellow h36 w116 flex">
+                        <div class="YellowContent h28 w108 flex">戦績登録</div>
+                    </div>
+                </a>
+                <form action="{{ route('logout') }}" method="POST" class="LogOut flex">
+                    @csrf
+                    <button type="submit" class="Black h36 w116 flex">
+                        <div class="BlackContent h28 w108 flex">ログアウト</div>
+                    </button>
+                </form>
+            </div>
         </div>
     </header>
 

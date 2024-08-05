@@ -197,6 +197,7 @@ class MatchController extends Controller
     
         return response()->json([
             'playerWinRate' => $playerRate !== '-' ? number_format($playerRate, 2) : '-',
+            'playerTotal' => $playerTotal,
             'characterWinRates' => $winRate,
             'stageWinRates' => $stageWinRate,
             'characterName' => $character->name,

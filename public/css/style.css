@@ -25,7 +25,7 @@ header {
 .header_content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 20px;
     height: 40px;
 }
@@ -136,20 +136,49 @@ header {
     color: #fff;
 }
 
+.letterRed{
+    color: #ff0000;
+}
+
 .chooser {
     background-color: #fff;
+    width: 1600px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.left-item {
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
     width: 420px;
     height: 40px;
-    margin-left: 550px;
-    margin-right: auto;
     border: #000 1px solid;
-    font-size: 20px;
+
+}
+
+.middle-item{
+    margin-right: auto;
 }
 
 .chooserSize {
     width: 420px;
     padding: 5px 10px;
 }
+
+@media screen and (max-width:960px) {
+    .w415 {
+        width: calc(100% - 140px);
+        padding: 5px 10px;
+    }
+}
+
+
 
 .chooserSize-wrapper {
     position: relative;
@@ -261,6 +290,13 @@ header {
     z-index: 1;
 }
 
+.showCount{
+    color: #fff;
+    position: relative;
+    right: -25px;
+    z-index: 1;
+}
+
 .playerPart {
     position: relative;
     margin-top: 5px;
@@ -272,6 +308,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .playerPart::after {
@@ -302,6 +339,27 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+
+.centralPart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    transform: translateY(35px); 
+    z-index: 1;
+}
+
+/* .totalCount{
+    position: absolute;
+    transform: translate(245px, 40px);
+} */
+.totalCount {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;
 }
 
 .green {
@@ -547,7 +605,7 @@ header {
     transform: translateX(-50%);
 }
 
-.submitButton {
+/* .submitButton {
     position: relative;
 }
 
@@ -561,7 +619,7 @@ header {
     pointer-events: auto;
     content: "";
     background-color: transparent;
-}
+} */
 
 .BlueContent {
     position: relative;
@@ -708,13 +766,13 @@ header {
     visibility: hidden;
 }
 
+/*===============================================
+	勝敗ボタン
+================================================*/
 input[type = radio]{
     display: none;
 }
 
-/*===============================================
-	勝敗ボタン
-================================================*/
 .BlueButton {
     background-color: #1E3A9D;
 }
@@ -798,14 +856,12 @@ input[type = radio]{
 .roleIcon{
     visibility: hidden;
     position: absolute;
-    width: 50px;
-    height: 50px;
-    transform: translate(75px, -75px);
+    width: 45px;
+    height: 45px;
+    transform: translate(78px, -78px);
     opacity: 0.96;
     z-index: 1;
 }
-
-
 
 .selectContainer {
     position: relative;
@@ -839,9 +895,9 @@ input[type = radio]{
 
 .selectForm {
     position: absolute;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
     width: 200px;
     height: 200px;
     opacity: 0;
@@ -854,7 +910,6 @@ input[type = radio]{
 
 ==============================================================================================*/
 .character-name{
-    font-weight: 900;
     margin-bottom: 5px;
 }
 
@@ -888,7 +943,6 @@ input[type = radio]{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-weight: 600;
     line-height: 1.5;
 }
 
@@ -898,6 +952,15 @@ input[type = radio]{
     margin-left: 5px;
     object-position: center;
     object-fit: cover;
+}
+
+.characterConfirmPart{
+    background-image: linear-gradient(-45deg, #959595 40%, #828282 5%, #828282 50%, #959595 40%, #959595 90%, #828282 10%, #828282);
+    background-size: 8px 8px;
+    width: 370px;
+    text-align: center;
+    color: #fff;
+    padding: 5px 15px;
 }
 
 .modalConfirm{
@@ -912,20 +975,3 @@ input[type = radio]{
 .headerConfirm{
     padding-left: 10px;
 }
-
-/* .headerConfirm::before{
-    content: "";
-    background: url('../../public/images/confirm.png') no-repeat;
-    background-size: contain;
-    padding-left: 25px;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    margin-right: 5px;
-    padding-bottom: 10px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    font-size: 18px;
-} */
